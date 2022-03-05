@@ -36,16 +36,16 @@ export class LoginFormComponent implements OnInit {
     this.responseLogin =  data;
     this.loginForm.reset();
 
-    /*const dialogRef = this.dialog.open(DialogResultComponent, {
+    const dialogRef = this.dialog.open(DialogResultComponent, {
       // maxHeight: '95vh',
       minWidth: '400px',
       // width: '25vw',
-    }); */
+    }); 
 
-    /*dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       // window.location.reload();
-    });*/
+    });
   });
   }
 
