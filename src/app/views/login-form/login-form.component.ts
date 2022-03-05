@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Injectable, OnInit, ViewChild } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -7,6 +7,7 @@ import { Tenant } from 'src/app/shared/model/Tenant.moldel';
 import { LoginService } from 'src/app/shared/service/login.service';
 import { DialogResultComponent } from './dialog-result/dialog-result.component';
 
+@Injectable({providedIn: 'root'})
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -20,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder = new FormBuilder,
     public loginService: LoginService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -35,10 +36,11 @@ export class LoginFormComponent implements OnInit {
     this.loginService.getLogin( this.loginForm.value.usuario,this.loginForm.value.senha,this.loginForm.value.portal).subscribe((data: any) => {
     this.responseLogin =  data;
     this.loginForm.reset();
-    alert(this.responseLogin.message); 
+
     if (this.responseLogin.message=="OK") 
     {
       alert('Logado com sucesso: ' + this.responseLogin.userFirstName );
+      alert(this.responseLogin.emailId);
       
     const dialogRef = this.dialog.open(DialogResultComponent, {
       // maxHeight: '95vh',
@@ -59,5 +61,9 @@ export class LoginFormComponent implements OnInit {
 
   });
   }
+
+getResposta():ResponseLogin{
+return this.responseLogin;
+}
 
 }
