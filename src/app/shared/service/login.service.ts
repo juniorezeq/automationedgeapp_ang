@@ -7,6 +7,7 @@ import { ResponseLogin } from '../model/ResponseLogin.model';
   providedIn: 'root'
 })
 export class LoginService {
+  response!: ResponseLogin
 
   apiurl = "https://automationedgeapp.herokuapp.com/restapi/login";
   httpOptions = {
@@ -32,5 +33,4 @@ export class LoginService {
   public getLogin(usuario: string, senha: string, portal: string):Observable<any>{
     return this.httpClient.post<ResponseLogin>(this.apiurl + '?usuario=' + usuario + '&senha=' +senha + '&portal=' + portal,'',this._httpOptions )
   }
-
 }

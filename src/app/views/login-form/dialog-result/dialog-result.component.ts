@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ResponseLogin } from 'src/app/shared/model/ResponseLogin.model';
+import { LoginService } from 'src/app/shared/service/login.service';
 
 @Component({
   selector: 'app-dialog-result',
@@ -13,14 +14,10 @@ export class DialogResultComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogResultComponent>,
+    public loginService: LoginService
   ) { }
 
   ngOnInit(): void {
   }
   
-  getDialog(dados: ResponseLogin):void{
-    this.responseLogin = dados;
-
-  }
-
 }

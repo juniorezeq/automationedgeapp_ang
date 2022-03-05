@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -35,7 +35,11 @@ export class LoginFormComponent implements OnInit {
     this.loginService.getLogin( this.loginForm.value.usuario,this.loginForm.value.senha,this.loginForm.value.portal).subscribe((data: any) => {
     this.responseLogin =  data;
     this.loginForm.reset();
-
+    alert(this.responseLogin.message); 
+    if (this.responseLogin.message=="OK") 
+    {
+      alert('Logado com sucesso: ' + this.responseLogin.userFirstName );
+      
     const dialogRef = this.dialog.open(DialogResultComponent, {
       // maxHeight: '95vh',
       minWidth: '400px',
@@ -46,6 +50,13 @@ export class LoginFormComponent implements OnInit {
       console.log('The dialog was closed');
       // window.location.reload();
     });
+    } 
+    else
+    {
+      alert('Falha no login, verfique os dados digitados');
+    }
+
+
   });
   }
 

@@ -22,10 +22,5 @@ export class FormularioComponent implements OnInit {
 
   }
 
-getLogin(): void{
-  this.loginService.getLogin( "ezequiel_hlb","Edge@123","t3").subscribe((data: any) => {
-  this.responseLogin =  data;
-});
-}
 
 }
