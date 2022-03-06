@@ -1,8 +1,8 @@
 import { inject } from '@angular/core/testing';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ResponseLogin } from 'src/app/shared/model/ResponseLogin.model';
 import { LoginService } from 'src/app/shared/service/login.service';
-import { Component, ElementRef, Injectable, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, Injectable, Input, OnInit, ViewChild } from '@angular/core';
 import { LoginFormComponent } from '../login-form.component';
 
 @Injectable({providedIn: 'root'})
@@ -12,14 +12,18 @@ import { LoginFormComponent } from '../login-form.component';
   styleUrls: ['./dialog-result.component.css']
 })
 export class DialogResultComponent implements OnInit {
-  response!: ResponseLogin;
-  
-  constructor(/*public _response: ResponseLogin*/) {
-   }
+  loginService!: LoginService
+  resposta!: ResponseLogin
 
-  ngOnInit(): void {
-  /*  this.response = this._response;
-    alert(this.response.userFirstName);*/
-  }
   
+  constructor(public dialogRef: MatDialogRef<DialogResultComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {resp: ResponseLogin} ) {
+      this.resposta = this.data.resp;
+  }
+
+
+  ngOnInit(): void {  
+
+}
+
 }

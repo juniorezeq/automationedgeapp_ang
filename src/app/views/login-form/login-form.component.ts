@@ -21,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder = new FormBuilder,
     public loginService: LoginService,
-    public dialog: MatDialog,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -39,13 +39,11 @@ export class LoginFormComponent implements OnInit {
 
     if (this.responseLogin.message=="OK") 
     {
-      alert('Logado com sucesso: ' + this.responseLogin.userFirstName );
-      alert(this.responseLogin.emailId);
-      
+      // alert('Logado com sucesso: ' + this.responseLogin.userFirstName );
+
     const dialogRef = this.dialog.open(DialogResultComponent, {
-      // maxHeight: '95vh',
       minWidth: '400px',
-      // width: '25vw',
+      data: {resp: this.responseLogin},
     }); 
 
     dialogRef.afterClosed().subscribe(result => {
