@@ -44,26 +44,24 @@ getProgresso(): void{
       data: {resp: this.progresso},
     }); 
 
-
     this.loginService.getLogin( this.loginForm.value.usuario,this.loginForm.value.senha,this.loginForm.value.portal).subscribe((data: any) => {
     this.responseLogin =  data;
 
-    if (this.responseLogin.message=="OK") 
-    {
-    const dialogRef = this.dialog.open(DialogResultComponent, {
-      minWidth: '400px',
-      data: {resp: this.responseLogin},
-    }); 
+    if (this.responseLogin.message=="OK")  {
+      const dialogRef = this.dialog.open(DialogResultComponent, {
+        minWidth: '400px',
+        data: {resp: this.responseLogin},
+      }); 
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // window.location.reload();
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        // window.location.reload();
+      });
     } 
-    else
-    {
+    else {
       alert('Falha no login, verfique os dados digitados');
     }
+    
     this.loginForm.reset();
     CaixaDialog.close();
   });
