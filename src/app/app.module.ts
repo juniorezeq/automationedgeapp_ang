@@ -20,6 +20,7 @@ import { from } from 'rxjs';
 import { LoginFormComponent } from './views/login-form/login-form.component';
 import {MatCardModule} from '@angular/material/card';
 import { DialogResultComponent } from './views/login-form/dialog-result/dialog-result.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DialogResultComponent } from './views/login-form/dialog-result/dialog-r
     MatDialogModule,
     MatInputModule,
     MatCardModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

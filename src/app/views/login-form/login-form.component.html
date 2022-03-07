@@ -7,24 +7,27 @@
     </mat-card-header>
     <mat-card-content>
         <form class="example-form" [formGroup]="loginForm" >
-          <mat-form-field class="example-left-align">
-            <mat-label>Nome Usuario</mat-label>
-            <input matInput placeholder="" formControlName="usuario" name="usuario">
-        </mat-form-field>
-      
-        <mat-form-field class="example-left-align">
-            <mat-label>Senha</mat-label>
-            <input matInput placeholder="" formControlName="senha" name="senha" [type]="hide ? 'password' : 'text'">
-        </mat-form-field>
-    
-        <mat-form-field class="example-left-align">
-            <mat-label>portal</mat-label>
-            <input matInput placeholder="" formControlName="portal" name="portal">
-        </mat-form-field>
+          <div class="class column">
+              <mat-form-field class="example-left-align">
+                <mat-label>Nome Usuario</mat-label>
+                <input matInput placeholder="" formControlName="usuario" name="usuario">
+              </mat-form-field>
+              <mat-form-field class="example-left-align">
+                <mat-label>Senha</mat-label>
+                <input matInput placeholder="" formControlName="senha" name="senha" [type]="hide ? 'password' : 'text'">
+             </mat-form-field>
+          </div>
+          
+          <div class="class column">
+            <mat-form-field class="example-left-align">
+              <mat-label>Portal</mat-label>
+              <input matInput placeholder="" formControlName="portal" name="portal">
+            </mat-form-field>       
+          </div>
         </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="Accent" (click)=getLogin()>Logar</button>
+        <button mat-raised-button color="primary"(click)=getLogin()>Logar</button>
     </mat-card-actions>
   </mat-card>
   </div>
