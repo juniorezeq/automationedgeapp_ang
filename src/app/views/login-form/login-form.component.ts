@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ResponseLogin } from 'src/app/shared/model/ResponseLogin.model';
 import { Tenant } from 'src/app/shared/model/Tenant.moldel';
 import { LoginService } from 'src/app/shared/service/login.service';
+import { ProgressoComponent } from '../progresso/progresso.component';
 import { DialogResultComponent } from './dialog-result/dialog-result.component';
 
 @Injectable({providedIn: 'root'})
@@ -18,6 +19,7 @@ export class LoginFormComponent implements OnInit {
   responseLogin!: ResponseLogin;
   tenant!: Tenant;
   hide = true;
+  progresso = false;
   
   constructor(
     private fb: FormBuilder = new FormBuilder,
@@ -33,10 +35,18 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
+getProgresso(): void{
+  this.getLogin();
+}
   getLogin(): void{
+    const CaixaDialog = this.dialog.open(ProgressoComponent, {
+      minWidth: '400px',
+      data: {resp: this.progresso},
+    }); 
+
+
     this.loginService.getLogin( this.loginForm.value.usuario,this.loginForm.value.senha,this.loginForm.value.portal).subscribe((data: any) => {
     this.responseLogin =  data;
-    this.loginForm.reset();
 
     if (this.responseLogin.message=="OK") 
     {
@@ -54,8 +64,8 @@ export class LoginFormComponent implements OnInit {
     {
       alert('Falha no login, verfique os dados digitados');
     }
-
-
+    this.loginForm.reset();
+    CaixaDialog.close();
   });
   }
 

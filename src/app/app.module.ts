@@ -21,6 +21,7 @@ import { LoginFormComponent } from './views/login-form/login-form.component';
 import {MatCardModule} from '@angular/material/card';
 import { DialogResultComponent } from './views/login-form/dialog-result/dialog-result.component';
 import {MatButtonModule} from '@angular/material/button';
+import { ProgressoComponent } from './views/progresso/progresso.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
     HomeComponent,
     FormularioComponent,
     LoginFormComponent,
-    DialogResultComponent
+    DialogResultComponent,
+    ProgressoComponent,
   ],
   imports: [
     BrowserModule,
