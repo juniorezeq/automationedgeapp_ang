@@ -2,7 +2,7 @@ import { inject } from '@angular/core/testing';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ResponseLogin } from 'src/app/shared/model/ResponseLogin.model';
 import { LoginService } from 'src/app/shared/service/login.service';
-import { Component, ElementRef, Inject, Injectable, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, Injectable, Input, OnInit } from '@angular/core';
 import { LoginFormComponent } from '../login-form.component';
 
 @Injectable({providedIn: 'root'})
@@ -23,7 +23,6 @@ export class DialogResultComponent implements OnInit {
 
 
   ngOnInit(): void {  
-
 }
 
 }

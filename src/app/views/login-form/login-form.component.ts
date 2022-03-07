@@ -17,6 +17,7 @@ export class LoginFormComponent implements OnInit {
   public loginForm!: FormGroup;
   responseLogin!: ResponseLogin;
   tenant!: Tenant;
+  hide = true;
   
   constructor(
     private fb: FormBuilder = new FormBuilder,
@@ -39,8 +40,6 @@ export class LoginFormComponent implements OnInit {
 
     if (this.responseLogin.message=="OK") 
     {
-      // alert('Logado com sucesso: ' + this.responseLogin.userFirstName );
-
     const dialogRef = this.dialog.open(DialogResultComponent, {
       minWidth: '400px',
       data: {resp: this.responseLogin},

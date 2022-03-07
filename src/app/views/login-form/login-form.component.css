@@ -24,6 +24,11 @@
     display: none;
   }
   
+
+  .color-input{
+    background: rgb(235, 232, 232);
+  }
+  
   input.example-right-align {
     -moz-appearance: textfield;
   }
@@ -42,7 +47,7 @@
     position: fixed;
     left: 50%;
     padding: 24px;
-    top: 50%;
+    top: 40%;
     transform: translate(-50%, -50%);
   }
 
@@ -67,4 +72,19 @@
     transform: translate(-50%, -50%);
   }
 
- 
+  .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
