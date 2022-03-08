@@ -2,6 +2,7 @@ import { Component, ElementRef, Injectable, OnInit, ViewChild } from '@angular/c
 import { inject } from '@angular/core/testing';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ResponseLogin } from 'src/app/shared/model/ResponseLogin.model';
 import { Tenant } from 'src/app/shared/model/Tenant.moldel';
 import { LoginService } from 'src/app/shared/service/login.service';
@@ -24,7 +25,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder = new FormBuilder,
     public loginService: LoginService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +61,9 @@ getProgresso(): void{
       });
     } 
     else {
-      alert('Falha no login, verfique os dados digitados');
+      this.snackBar.open('Falha na autenticação', 'Usuário ou senha incorretos.', {
+        duration: 3000
+      });
     }
     
     this.loginForm.reset();

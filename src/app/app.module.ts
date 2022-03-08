@@ -22,6 +22,7 @@ import {MatCardModule} from '@angular/material/card';
 import { DialogResultComponent } from './views/login-form/dialog-result/dialog-result.component';
 import {MatButtonModule} from '@angular/material/button';
 import { ProgressoComponent } from './views/progresso/progresso.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { ProgressoComponent } from './views/progresso/progresso.component';
     MatInputModule,
     MatCardModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
